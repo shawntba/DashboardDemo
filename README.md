@@ -1,8 +1,6 @@
 Dashboard Demo
 =============
 
-Demo project;
-
 Reference Projects:
 
 * Twitter [Bootstrap](http://twitter.github.com/bootstrap/)
