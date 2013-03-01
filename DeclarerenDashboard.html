@@ -143,8 +143,8 @@
 		});
 
 		// Set a callback to run when the Google Visualization API is loaded.
-		google.setOnLoadCallback(drawGraph01Visualization);
-		google.setOnLoadCallback(drawGraph02Chart);
+		google.setOnLoadCallback(function(){drawGraph01Visualization('72727335',[4,5])});
+		google.setOnLoadCallback(function(){drawGraph02Chart('72727335',[4,5])});
 		google.setOnLoadCallback(drawGraph03Visualization);
 		google.setOnLoadCallback(drawGraph04Visualization);
 		google.setOnLoadCallback(drawGraph05Visualization);

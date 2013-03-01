@@ -2,15 +2,7 @@
  * Toegekend versus afgekeurd
  * @author gary.gan
  */
-function drawGraph02Chart() {
-
-	// Create the data table.
-	var data = new google.visualization.DataTable([
-		['AGBCode', 'Jaar', 'PeriodType', 'PeriodNum', 'Toegekend', 'Afgekeurd', 'In Behandeling'], 
-		['72727335', '2012', '', '', '6582232', '11545216', '5645452121'], 
-		['75757554', '2012', '', '', '25644551', '2665452', '455412'], 
-		['73731810', '2012', '', '', '6564542', '25545142', '5462215']
-	]);
+function drawGraph02Chart(currentAgbCode, columnIndexArray) {
 
 	// Set chart options
 	var options = {
@@ -30,17 +22,33 @@ function drawGraph02Chart() {
 		}
 	};
 
-	var preparedData = new google.visualization.DataTable({
-		cols : [{ id : 'status', label : 'Status', type : 'string'
-			}, { id : 'sum', label : 'Sum', type : 'number'
+	var originalData = new google.visualization.DataTable({
+		cols : [{ id : 'AGBCode', label : 'AGBCode', type : 'string'
+			}, { id : 'Jaar', label : 'Jaar', type : 'string'
+			}, { id : 'PeriodType', label : 'PeriodType', type : 'string'
+			}, { id : 'PeriodNum', label : 'PeriodNum', type : 'string'
+			}, { id : 'Status', label : 'Status', type : 'string'
+			}, { id : 'Sum', label : 'Sum', type : 'number'
 			}],
-		rows : [{ c : [{ v : 'Toegekend' }, { v : 11545216 }]
-			}, { c : [{ v : 'Afgekeurd' }, { v : 2665452 }]
-			}, { c : [{ v : 'In Behandeling' }, { v : 25545142 }]
+		rows : [{ c : [{ v : '72727335' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Togekend' }, { v : 36522622 }]
+			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Afgekeurd' }, { v : 11545216 }]
+			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'In Behandeling' }, { v : 4444444 }]
+			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Togekend' }, { v : 12454112 }]
+			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Afgekeurd' }, { v : 141454 }]
+			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'In Behandeling' }, { v : 21511 }]
+			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Togekend' }, { v : 4545412111 }]
+			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Afgekeurd' }, { v : 11545216 }]
+			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'In Behandeling' }, { v : 551651 }]
 			}]
-	});
+		});
+		
+		
+	var preparedData = getChartDataSource(originalData, currentAgbCode, columnIndexArray);	
+	
 
 	// Instantiate and draw our chart, passing in some options.
 	var chart = new google.visualization.PieChart(document.getElementById('Graph02Chart_div'));
 	chart.draw(preparedData, options);
 }
+
+
