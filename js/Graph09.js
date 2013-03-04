@@ -2,17 +2,39 @@
  * Prognose gedeclareerde bedragen
  * @author gary.gan
  */
-function drawGraph09Visualization() {
+function drawGraph09Visualization(currentAgbCode, columnIndexArray, periodType) {
   // Create and populate the data table.
-  var data = google.visualization.arrayToDataTable([
-    ['Period', 'Bedrag', 'Bedrag'],
-	['Jan',  1336060,   0],
-	['Feb',  1538156,   0],
-	['Maa',  1576579,   0],
-	['Apr',  1600652,   0],
-	['Mei',  0,   1968113],
-	['Jun',  0,   1901067]
-  ]);
+  var originalData = new google.visualization.DataTable({
+		cols : [{ id : 'AGBCode', label : 'AGBCode', type : 'string'
+			}, { id : 'Jaar', label : 'Jaar', type : 'string'
+			}, { id : 'PeriodType', label : 'PeriodType', type : 'string'
+			}, { id : 'PeriodNum', label : 'PeriodNum', type : 'string'
+			}, { id : 'Bedrag', label : 'Bedrag', type : 'number'
+			}, { id : 'Bedrag', label : 'Bedrag', type : 'number'
+			}],
+		rows : [{ c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '5' }, { v : 6520 }, { v : 0 }]
+			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '6' }, { v : 7652 }, { v : 0 }]
+			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '7' }, { v : 8232 }, { v : 0 }]
+			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '8' }, { v : 7541 }, { v : 0 }]
+			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '9' }, { v : 0 }, { v : 6985 }]
+			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '10' }, { v : 0 }, { v : 6854 }]
+			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '3' }, { v : '5' }, { v : 10256 }, { v : 0 }]
+			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '3' }, { v : '6' }, { v : 11258 }, { v : 0 }]
+			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '3' }, { v : '7' }, { v : 12352 }, { v : 0 }]
+			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '3' }, { v : '8' }, { v : 13524 }, { v : 0 }]
+			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '3' }, { v : '9' }, { v : 0}, { v : 9985 }]
+			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '3' }, { v : '10' }, { v : 0 }, { v : 10241 }]
+			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '3' }, { v : '5' }, { v : 23652 }, { v : 0 }]
+			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '3' }, { v : '6' }, { v : 21021 }, { v : 0 }]
+			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '3' }, { v : '7' }, { v : 25001 }, { v : 0 }]
+			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '3' }, { v : '8' }, { v : 23012 }, { v : 0 }]
+			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '3' }, { v : '9' }, { v : 0 }, { v : 19521 }]
+			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '3' }, { v : '10' }, { v : 0 }, { v : 20145 }]
+			}]
+		});
+		
+	var preparedData = getChartDataSource(originalData, currentAgbCode, columnIndexArray);
+  	preparedData = convertPeriodText(preparedData, 0, periodType);
   
   // Set chart options
 	var options = {
@@ -25,5 +47,5 @@ function drawGraph09Visualization() {
 
   // Create and draw the visualization.
   new google.visualization.ColumnChart(document.getElementById('Graph09Visualization_div')).
-      draw(data, options);
+      draw(preparedData, options);
 }

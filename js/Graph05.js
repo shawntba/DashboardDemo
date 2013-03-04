@@ -2,46 +2,57 @@
  * Tijdigheid (Timeliness) of the send AW319 messages.
  * @author gary.gan
  */
-function drawGraph05Visualization() {
+function drawGraph05Visualization(currentAgbCode, columnIndexArray) {
 	// Create and populate the data table.
-	var dataSend = new google.visualization.DataTable(
-		{
-			cols: 
-				[	
-					{ id : 'label', label : 'Label', 	type : 'string'}, 
-					{ id : 'value', label : 'Value', 	type : 'number'}
-				],
-			rows: 
-				[
-					{ c : [{ v : 'Tijdigheid' }, { v : 8 }]}
-				]
-		});
+	var originalData5 = new google.visualization.DataTable({
+		cols : [{ id : 'AGBCode', label : 'AGBCode', type : 'string'
+			}, { id : 'Jaar', label : 'Jaar', type : 'string'
+			}, { id : 'PeriodType', label : 'PeriodType', type : 'string'
+			}, { id : 'PeriodNum', label : 'PeriodNum', type : 'string'
+			}, { id : 'Weight', label : 'Weight', type : 'string'
+			}, { id : 'Label', label : 'Label', type : 'string'
+			}, { id : 'Value', label : 'Value', type : 'number'
+			}],
+		rows : [{ c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '' }, { v : '850' }, { v : 'Tijdigheid' }, { v : 6 }]
+			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '2' }, { v : '' }, { v : '900' }, { v : 'Tijdigheid' }, { v : 2 }]
+			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '1' }, { v : '' }, { v : '1000' }, { v : 'Tijdigheid' }, { v : 4 }]
+			}]
+		}); 
 		
-	var dataApproved = new google.visualization.DataTable(
-		{
-			cols: 
-				[	
-					{ id : 'label', label : 'Label', 	type : 'string'}, 
-					{ id : 'value', label : 'Value', 	type : 'number'}
-				],
-			rows: 
-				[
-					{ c : [{ v : 'Tijdigheid' }, { v : 95 }]}
-				]
-		});
+	var originalData6 = new google.visualization.DataTable({
+		cols : [{ id : 'AGBCode', label : 'AGBCode', type : 'string'
+			}, { id : 'Jaar', label : 'Jaar', type : 'string'
+			}, { id : 'PeriodType', label : 'PeriodType', type : 'string'
+			}, { id : 'PeriodNum', label : 'PeriodNum', type : 'string'
+			}, { id : 'Weight', label : 'Weight', type : 'string'
+			}, { id : 'Label', label : 'Label', type : 'string'
+			}, { id : 'Value', label : 'Value', type : 'number'
+			}],
+		rows : [{ c : [{ v : '72727335' }, { v : '2012' }, { v : '' }, { v : '' }, { v : '850' }, { v : 'Tijdigheid' }, { v : 95 }]
+			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '' }, { v : '' }, { v : '900' }, { v : 'Tijdigheid' }, { v : 80 }]
+			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '' }, { v : '' }, { v : '1000' }, { v : 'Tijdigheid' }, { v : 70 }]
+			}]
+		}); 
 		
-	var dataQuality = new google.visualization.DataTable(
-		{
-			cols: 
-				[	
-					{ id : 'label', label : 'Label', 	type : 'string'}, 
-					{ id : 'value', label : 'Value', 	type : 'number'}
-				],
-			rows: 
-				[
-					{ c : [{ v : 'Kwaliteit' }, { v : 93 }]}
-				]
-		});
+	var originalData7 = new google.visualization.DataTable({
+		cols : [{ id : 'AGBCode', label : 'AGBCode', type : 'string'
+			}, { id : 'Jaar', label : 'Jaar', type : 'string'
+			}, { id : 'PeriodType', label : 'PeriodType', type : 'string'
+			}, { id : 'PeriodNum', label : 'PeriodNum', type : 'string'
+			}, { id : 'Weight', label : 'Weight', type : 'string'
+			}, { id : 'Label', label : 'Label', type : 'string'
+			}, { id : 'Value', label : 'Value', type : 'number'
+			}],
+		rows : [{ c : [{ v : '72727335' }, { v : '2012' }, { v : '' }, { v : '' }, { v : '850' }, { v : 'Tijdigheid' }, { v : 95 }]
+			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '' }, { v : '' }, { v : '900' }, { v : 'Tijdigheid' }, { v : 80 }]
+			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '' }, { v : '' }, { v : '1000' }, { v : 'Tijdigheid' }, { v : 70 }]
+			}]
+		}); 	
+		
+	var preparedData5 = getChartDataSource(originalData5, currentAgbCode, columnIndexArray);	
+	var preparedData6 = getChartDataSource(originalData6, currentAgbCode, columnIndexArray);
+	var preparedData7 = getChartDataSource(originalData7, currentAgbCode, columnIndexArray);
+			
 		
 	var optionsSend = {
 		  title: 'TIJDIGHEID',
@@ -67,7 +78,7 @@ function drawGraph05Visualization() {
         };
 
 	// Create and draw the visualization.
-	new google.visualization.Gauge(document.getElementById('Graph05gauge_div')).draw(dataSend, optionsSend);
-	new google.visualization.Gauge(document.getElementById('Graph06gauge_div')).draw(dataApproved, optionsApproved);
-	new google.visualization.Gauge(document.getElementById('Graph07gauge_div')).draw(dataQuality, optionsQuality);
+	new google.visualization.Gauge(document.getElementById('Graph05gauge_div')).draw(preparedData5, optionsSend);
+	new google.visualization.Gauge(document.getElementById('Graph06gauge_div')).draw(preparedData6, optionsApproved);
+	new google.visualization.Gauge(document.getElementById('Graph07gauge_div')).draw(preparedData7, optionsQuality);
 }
