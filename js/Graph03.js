@@ -72,7 +72,7 @@ function setFormat(dataSource)
 		var value2 = data.getValue(i, 2).toString(); 
 		if (value1 != 0)	
 		{
-			data.setFormattedValue(i, 1, Math.abs(value1) + "%");
+			data.setFormattedValue(i, 1,  (Math.abs(value1) + "%").replace('.', ','));
 		}
 		else
 		{
@@ -81,7 +81,7 @@ function setFormat(dataSource)
 		
 		if (value2 != 0)
 		{
-			data.setFormattedValue(i, 2, Math.abs(value2) + "%");
+			data.setFormattedValue(i, 2, (Math.abs(value2) + "%").replace('.', ','));
 		}	
 		else
 		{
