@@ -145,12 +145,12 @@
 		// Set a callback to run when the Google Visualization API is loaded.
 		google.setOnLoadCallback(function(){drawGraph01Visualization('72727335',[4,5])});
 		google.setOnLoadCallback(function(){drawGraph02Chart('72727335',[4,5])});
-		google.setOnLoadCallback(drawGraph03Visualization);
-		google.setOnLoadCallback(drawGraph04Visualization);
-		google.setOnLoadCallback(drawGraph05Visualization);
-		google.setOnLoadCallback(drawGraph08Visualization);
-		google.setOnLoadCallback(drawGraph09Visualization);
-		google.setOnLoadCallback(drawGraph10Chart);
+		google.setOnLoadCallback(function(){drawGraph03Visualization('72727335',[3,5,6], "0")});
+		google.setOnLoadCallback(function(){drawGraph04Visualization('72727335',[3,4,5,6], "0")});
+		google.setOnLoadCallback(function(){drawGraph05Visualization('72727335',[5,6])});
+		google.setOnLoadCallback(function(){drawGraph08Visualization('72727335',[3,5], "0")});
+		google.setOnLoadCallback(function(){drawGraph09Visualization('72727335',[3,4,5], "0")});
+		google.setOnLoadCallback(function(){drawGraph10Chart('72727335',[4,5])});
 	</script>
 	<script type="text/javascript" src="js/FixGoogleChartIcon.js"></script>
 </html>

@@ -27,7 +27,7 @@ function drawGraph01Visualization(currentAgbCode, columnIndexArray) {
 			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'F493' }, { v : 35214 }]
 			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'F321' }, { v : 12566 }]
 			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'F102' }, { v : 6521 }]
-			},]
+			}]
 		});
 		
 	var preparedData = getChartDataSource(originalData, currentAgbCode, columnIndexArray);	
