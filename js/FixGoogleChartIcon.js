@@ -104,3 +104,25 @@ function getMonth(periodNumber)
 }
 
 
+/**
+ * 
+ */
+function GetRelatedUitvoerder() {
+    $.ajax({
+        url: "/NavigatorService/WcfReportService.svc/GetEdpDashBoardUitvoerder",
+        type: "POST",
+        dataType: "json",
+        cache: false,
+        async: true,
+        processData: false,
+        contentType: "application/json",
+        error: function (req, status, error) {
+
+        },
+        success: function (data) {
+            var resultAgbs = data["GetEdpDashBoardUitvoerderResult"];
+            return resultAgbs;
+        }
+    });
+}
+

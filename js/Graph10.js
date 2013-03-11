@@ -9,26 +9,13 @@ function drawGraph10Chart(currentAgbCode, columnIndexArray) {
 
 	// Create the data table.
 	var originalData = new google.visualization.DataTable({
-		cols : [{ id : 'AGBCode', label : 'AGBCode', type : 'string'
-			}, { id : 'Jaar', label : 'Jaar', type : 'string'
-			}, { id : 'PeriodType', label : 'PeriodType', type : 'string'
-			}, { id : 'PeriodNum', label : 'PeriodNum', type : 'string'
-			}, { id : 'Status', label : 'Status', type : 'string'
-			}, { id : 'Valide', label : 'Valide', type : 'number'
+		cols : [{ id : '', label : 'Uitvoerder', type : 'string'
+			}, { id : '', label : 'Year', type : 'string'
+			}, { id : '', label : 'Periode Type', type : 'string'
+			}, { id : '', label : 'Status', type : 'string'
+			}, { id : '', label : 'Valide', type : 'number'
 			}],
-		rows : [{ c : [{ v : '72727335' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Valide' }, { v : 800 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'In behandeling' }, { v : 200 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Niet (geheel) valide' }, { v : 150 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Compleet afgekeurd' }, { v : 300 }]
-			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Valide' }, { v : 900 }]
-			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'In behandeling' }, { v : 100 }]
-			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Niet (geheel) valide' }, { v : 50 }]
-			}, { c : [{ v : '75757554' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Compleet afgekeurd' }, { v : 10 }]
-			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Valide' }, { v : 100 }]
-			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'In behandeling' }, { v : 150 }]
-			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Niet (geheel) valide' }, { v : 100 }]
-			}, { c : [{ v : '73731810' }, { v : '2012' }, { v : '' }, { v : '' }, { v : 'Compleet afgekeurd' }, { v : 30 }]
-			}]
+		rows : {}
 		});
 		
 	var preparedData = getChartDataSource(originalData, currentAgbCode, columnIndexArray);			

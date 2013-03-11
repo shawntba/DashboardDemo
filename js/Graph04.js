@@ -5,27 +5,15 @@
 function drawGraph04Visualization(currentAgbCode, columnIndexArray, periodType) {
   // Some raw data (not necessarily accurate)
 	var originalData = new google.visualization.DataTable({
-		cols : [{ id : 'AGBCode', label : 'AGBCode', type : 'string'
-			}, { id : 'Jaar', label : 'Jaar', type : 'string'
-			}, { id : 'PeriodType', label : 'PeriodType', type : 'string'
-			}, { id : 'PeriodNum', label : 'PeriodNum', type : 'string'
-			}, { id : 'Totaal', label : 'Totaal', type : 'number'
-			}, { id : 'Goedegekeurd', label : 'Goedegekeurd', type : 'number'
-			}, { id : 'Afgekeurd', label : 'Afgekeurd', type : 'number'
+		cols : [{ id : '', label : 'Uitvoerder', type : 'string'
+			}, { id : '', label : 'Year', type : 'string'
+			}, { id : '', label : 'Periode Type', type : 'string'
+			}, { id : '', label : 'PeriodNum', type : 'number'
+			}, { id : '', label : 'Totaal', type : 'number'
+			}, { id : '', label : 'Goedegekeurd', type : 'number'
+			}, { id : '', label : 'Afgekeurd', type : 'number'
 			}],
-		rows : [{ c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '1' }, { v : 100 }, { v : 50 }, { v : 50 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '2' }, { v : 90}, { v : 30 }, { v : 60 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '3' }, { v : 115 }, { v : 20 }, { v : 95 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '4' }, { v : 95 }, { v : 15 }, { v : 80 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '5' }, { v : 125 }, { v : 25 }, { v : 100 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '6' }, { v : 110 }, { v : 35 }, { v : 75 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '7' }, { v : 110 }, { v : 45 }, { v : 65 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '8' }, { v : 140 }, { v : 50 }, { v : 90 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '9' }, { v : 105 }, { v : 25 }, { v : 80 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '10' }, { v : 95 }, { v : 10 }, { v : 85 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '11' }, { v : 90 }, { v : 20 }, { v : 70 }]
-			}, { c : [{ v : '72727335' }, { v : '2012' }, { v : '3' }, { v : '12' }, { v : 95 }, { v : 40 }, { v : 55 }]
-			}]
+		rows : {}
 		});
 	
   	var preparedData = getChartDataSource(originalData, currentAgbCode, columnIndexArray);	
