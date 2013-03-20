@@ -124,3 +124,15 @@ function getMonth(periodNumber) {
 	return month;
 }
 
+/**
+ * Show no data msg.
+ * @param {Object} current Graph Object
+ */
+function showNoDataMsg(currentGraphObject) {
+  //Clear the graph content div
+  currentGraphObject.html('');
+  
+  currentGraphObject.html("<div id='divNoData'></div>");
+  
+}
+

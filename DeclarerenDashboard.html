@@ -19,6 +19,10 @@
 
 		<!-- Bootstrap -->
 		<link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen" />
+		<link href="bootstrap/css/font-awesome.min.css" rel="stylesheet" media="screen" />
+		
+		<!-- Qtip -->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.0.0/jquery.qtip.css" rel="stylesheet" media="screen" />
 
 		<!-- google chart -->
 		<link href="https://www.google.com/uds/api/visualization/1.1/dd278b0853264c2fd92092aa8f34b5ad/controls.css" type="text/css" rel="stylesheet" />
@@ -71,19 +75,14 @@
 						Zoke
 					</button>
 				</form>
-				<div id="filter_div">
-					<div class="btn-group">
-						<button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
-							72727335 <span class="caret"> </span>
-						</button>
-						<ul class="dropdown-menu">
-							<li>
-								<a href="#">73737231</a>
-							</li>
-							<li>
-								<a href="#">75757554</a>
-							</li>
-						</ul>
+				<div id="filter_div" class="row-fluid">
+					<div id="filterSender" class="span2">
+						<div id="ctlVerzender"> </div>
+						<div id="verzenderTable" style="display: none;"> </div>
+					</div>
+					<div id="filterExecutor" class="span2">
+						<div id="ctlUitvoerder"> </div>
+						<div id="uitvoerderTable" style="display: none;"> </div>
 					</div>
 				</div>
 			</div>
@@ -123,7 +122,8 @@
 			</footer>
 		</div>
 
-		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/2.0.0/jquery.qtip.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 	</body>
 	<!--Load the AJAX API-->
@@ -136,10 +136,11 @@
 	<script type="text/javascript" src="js/Graph08.js"></script>
 	<script type="text/javascript" src="js/Graph09.js"></script>
 	<script type="text/javascript" src="js/Graph10.js"></script>
+	<script type="text/javascript" src="js/ClientFilter.js"></script>
 	<script type="text/javascript">
 		// Load the Visualization API and the piechart package.
-		google.load('visualization', '1.0', {
-			'packages' : ['corechart', 'table', 'gauge']
+		google.load('visualization', '1.1', {
+			'packages' : ['corechart', 'table', 'gauge', 'controls']
 		});
 
 		// Set a callback to run when the Google Visualization API is loaded.
@@ -151,6 +152,7 @@
 		google.setOnLoadCallback(function(){drawGraph08Visualization('72727335',[3,5], "0")});
 		google.setOnLoadCallback(function(){drawGraph09Visualization('72727335',[3,4,5], "0")});
 		google.setOnLoadCallback(function(){drawGraph10Chart('72727335',[4,5])});
+		google.setOnLoadCallback(drawClientFilter);
 	</script>
 	<script type="text/javascript" src="js/FixGoogleChartIcon.js"></script>
 </html>
